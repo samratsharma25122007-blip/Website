@@ -152,11 +152,15 @@ export function buildWorld(ctx) {
     ledUnder.material.emissiveIntensity = 1.0;
     ledUnder.position.set(0, 1.12, 0.66); wall.add(ledUnder);
 
-    // three products on illuminated pedestals
-    const xs = [-1.45, 0, 1.45];
+    // products on illuminated pedestals — spread evenly, any count
+    const n = cat.items.length;
+    const spanW = Math.min(panelW - 0.9, Math.max(0.001, n - 1) * 1.45);
+    const dispScale = n > 3 ? Math.max(0.72, 3 / n) : 1;   // shrink a little when crowded
     cat.items.forEach((item, k) => {
+      const x = n === 1 ? 0 : (k / (n - 1) - 0.5) * spanW;
       const disp = new THREE.Group();
-      disp.position.set(xs[k], 1.18, 0.42);
+      disp.position.set(x, 1.18, 0.42);
+      disp.scale.setScalar(dispScale);
       wall.add(disp);
 
       // soft contact shadow grounding the pedestal on the shelf
