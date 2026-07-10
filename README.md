@@ -46,9 +46,11 @@ The site is built with clearly-marked placeholders. Replace these:
 1. **Contact details** — phone, email, exact address and hours appear in
    `contact.html` and in the footer of every page. Search for
    `+91 00000 00000` and `hello@infurndesigns.com` and update them.
-2. **Photos** — every `.frame` currently shows a placeholder. Add images to
-   `assets/img/` and replace the `<div class="ph">…</div>` block with
-   `<img src="assets/img/your-photo.jpg" alt="…">`.
+2. **Photos** — the site is already wired to use five images as full-bleed
+   section backgrounds and portfolio frames. Just drop the files into
+   `assets/img/` with these exact names (see `assets/img/README.txt`):
+   `living-1.jpg`, `living-2.jpg`, `living-3.jpg`, `living-4.jpg`, `living-5.jpg`.
+   Missing files fall back to a styled placeholder — never a broken image.
 3. **Copy & stats** — the headline stats (years, projects) and body copy are
    sensible placeholders; adjust to the studio's real numbers and voice.
 4. **Contact form** — currently a front-end-only acknowledgement. Wire it to

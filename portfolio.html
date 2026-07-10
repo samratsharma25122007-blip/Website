@@ -33,6 +33,7 @@
   <main>
     <!-- PAGE HERO -->
     <section class="page-hero">
+      <div class="bg-photo" aria-hidden="true" style="background-image:url('assets/img/living-1.jpg')"></div>
       <div class="container">
         <p class="breadcrumb" data-reveal><a href="index.html">Home</a> &nbsp;/&nbsp; Work</p>
         <p class="eyebrow mt-2" data-reveal data-delay="1">Selected work</p>
@@ -49,46 +50,47 @@
       <div class="container">
         <div class="work">
           <a class="work-item col-8" href="contact.html" data-reveal>
-            <div class="frame"><div class="ph"><span class="ico">✦</span><span>Residential · add photo</span></div></div>
-            <div class="cap"><h3>Warm Minimal Apartment</h3><p>Residential Interior · Gurugram</p></div>
+            <div class="frame"><img src="assets/img/living-1.jpg" alt="Luxe sectional living room with gold pendant" loading="lazy" onerror="this.remove()"><div class="ph"><span class="ico">✦</span><span>Residential</span></div></div>
+            <div class="cap"><h3>Luxe Sectional Living</h3><p>Residential Interior · Gurugram</p></div>
           </a>
           <a class="work-item col-4" href="contact.html" data-reveal data-delay="1">
-            <div class="frame tall"><div class="ph"><span class="ico">✦</span><span>Furniture · add photo</span></div></div>
-            <div class="cap"><h3>Solid Oak Dining Table</h3><p>Bespoke Furniture</p></div>
+            <div class="frame tall"><img src="assets/img/living-3.jpg" alt="Double-height lounge with marble staircase" loading="lazy" onerror="this.remove()"><div class="ph"><span class="ico">✦</span><span>Lounge</span></div></div>
+            <div class="cap"><h3>Double-Height Lounge</h3><p>Residential Interior</p></div>
           </a>
 
           <a class="work-item col-4" href="contact.html" data-reveal>
-            <div class="frame tall"><div class="ph"><span class="ico">✦</span><span>Bathroom · add photo</span></div></div>
-            <div class="cap"><h3>Stone &amp; Brass Bathroom</h3><p>Bathroom Design</p></div>
+            <div class="frame tall"><img src="assets/img/living-2.jpg" alt="Symmetrical living room with marble feature wall" loading="lazy" onerror="this.remove()"><div class="ph"><span class="ico">✦</span><span>Residential</span></div></div>
+            <div class="cap"><h3>Symmetric Living Room</h3><p>Residential Interior</p></div>
           </a>
           <a class="work-item col-8" href="contact.html" data-reveal data-delay="1">
-            <div class="frame"><div class="ph"><span class="ico">✦</span><span>Kitchen · add photo</span></div></div>
-            <div class="cap"><h3>Sculpted Modular Kitchen</h3><p>Kitchen Design</p></div>
+            <div class="frame"><img src="assets/img/living-5.jpg" alt="Open-plan dining area with marble table" loading="lazy" onerror="this.remove()"><div class="ph"><span class="ico">✦</span><span>Dining</span></div></div>
+            <div class="cap"><h3>Open-Plan Dining</h3><p>Residential Interior</p></div>
           </a>
 
           <a class="work-item col-6" href="contact.html" data-reveal>
-            <div class="frame"><div class="ph"><span class="ico">✦</span><span>Workspace · add photo</span></div></div>
-            <div class="cap"><h3>Boutique Studio Office</h3><p>Commercial Interior</p></div>
+            <div class="frame"><img src="assets/img/living-4.jpg" alt="Warm apartment living room with mustard sofa" loading="lazy" onerror="this.remove()"><div class="ph"><span class="ico">✦</span><span>Residential</span></div></div>
+            <div class="cap"><h3>Warm Apartment Living</h3><p>Residential Interior</p></div>
           </a>
           <a class="work-item col-6" href="contact.html" data-reveal data-delay="1">
-            <div class="frame"><div class="ph"><span class="ico">✦</span><span>Bedroom · add photo</span></div></div>
-            <div class="cap"><h3>Layered Master Bedroom</h3><p>Residential Interior</p></div>
+            <div class="frame"><img src="assets/img/living-2.jpg" alt="Layered living room with symmetric seating" loading="lazy" onerror="this.remove()"><div class="ph"><span class="ico">✦</span><span>Residential</span></div></div>
+            <div class="cap"><h3>Layered Living Room</h3><p>Residential Interior</p></div>
           </a>
 
           <a class="work-item col-5" href="contact.html" data-reveal>
-            <div class="frame tall"><div class="ph"><span class="ico">✦</span><span>Wardrobe · add photo</span></div></div>
-            <div class="cap"><h3>Walk-in Wardrobe</h3><p>Modular Joinery</p></div>
+            <div class="frame tall"><img src="assets/img/living-1.jpg" alt="Sculpted sectional and gold detailing" loading="lazy" onerror="this.remove()"><div class="ph"><span class="ico">✦</span><span>Residential</span></div></div>
+            <div class="cap"><h3>Sculpted Sectional</h3><p>Residential Interior</p></div>
           </a>
           <a class="work-item col-7" href="contact.html" data-reveal data-delay="1">
-            <div class="frame"><div class="ph"><span class="ico">✦</span><span>Living · add photo</span></div></div>
-            <div class="cap"><h3>Textured Living Room</h3><p>Residential Interior</p></div>
+            <div class="frame"><img src="assets/img/living-5.jpg" alt="Textured open-plan living and dining" loading="lazy" onerror="this.remove()"><div class="ph"><span class="ico">✦</span><span>Living</span></div></div>
+            <div class="cap"><h3>Textured Open Plan</h3><p>Residential Interior</p></div>
           </a>
         </div>
 
-        <p class="note mx-auto mt-3" style="max-width:640px">
-          These are placeholder frames. Drop your real project photos into
-          <strong>assets/img/</strong> and replace each <code>.ph</code> block with
-          <code>&lt;img src="assets/img/your-photo.jpg" alt="…"&gt;</code>.
+        <p class="note mx-auto mt-3" style="max-width:660px">
+          These frames are already wired to <strong>assets/img/living-1.jpg … living-5.jpg</strong>.
+          Add those five files (your photos, in the order you shared them) to
+          <strong>assets/img/</strong> and they appear automatically — until then each frame
+          shows a styled placeholder.
         </p>
       </div>
     </section>
