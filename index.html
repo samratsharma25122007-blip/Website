@@ -3,413 +3,278 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KUROGANE — The Hero Katana</title>
-  <meta name="description" content="KUROGANE — a single, legendary handcrafted katana. Folded Damascus steel, matte black leather wrap, a crimson dragon saya. Museum-quality craftsmanship, suspended in shadow." />
+  <title>Infurn Designs Studio — Interiors, Furniture &amp; Bathroom Design</title>
+  <meta name="description" content="Infurn Designs Studio is a Gurugram-based interior design and bespoke furniture studio. We craft residential and commercial interiors, custom furniture, modular kitchens and luxury bathrooms. Design is not our job — it's our passion." />
+  <meta property="og:title" content="Infurn Designs Studio — Interiors & Bespoke Furniture" />
+  <meta property="og:description" content="Interior design, custom furniture and bathroom design studio in Gurugram. Design is not our job, it's our passion." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@200;300;400;500;600&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0c'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='20' fill='%23c2a878' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
-  <!-- Atmospheric canvas: dust, sparks, cherry blossoms -->
-  <canvas id="atmosphere" aria-hidden="true"></canvas>
-
-  <!-- Fixed grain / vignette overlays -->
   <div class="vignette" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
-  <!-- Progress rail -->
-  <nav class="rail" aria-label="Chapters">
-    <a href="#hero" class="rail-dot is-active" data-label="The Katana"><span></span></a>
-    <a href="#blade" class="rail-dot" data-label="The Blade"><span></span></a>
-    <a href="#tsuka" class="rail-dot" data-label="The Handle"><span></span></a>
-    <a href="#tsuba" class="rail-dot" data-label="The Guard"><span></span></a>
-    <a href="#saya" class="rail-dot" data-label="The Saya"><span></span></a>
-    <a href="#forge" class="rail-dot" data-label="The Forge"><span></span></a>
-  </nav>
-
-  <!-- Masthead -->
-  <header class="masthead">
-    <div class="brand">
-      <span class="brand-mark">刀</span>
-      <span class="brand-name">KUROGANE</span>
-    </div>
-    <div class="brand-tag">黒鉄 &middot; forged in shadow</div>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Infurn Designs Studio — home">
+      <span class="logo-mark">I</span>
+      <span class="logo-name"><b>Infurn</b> Designs</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">Studio</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Work</a>
+      <a href="contact.html" class="btn btn-primary">Book a consultation</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </header>
 
-  <!-- ============================================================= -->
-  <!-- STICKY STAGE — the katana lives here, pinned across the scroll -->
-  <!-- ============================================================= -->
-  <div class="stage" id="stage">
-    <div class="spotlight" aria-hidden="true"></div>
-    <div class="katana-orbit" id="orbit">
-      <div class="katana-float" id="float">
-        <svg id="katana" class="katana" viewBox="0 0 300 1600" role="img"
-             aria-label="A minimalist black and steel katana suspended in shadow">
-          <defs>
-            <!-- ---------- Blade steel (across the width) ---------- -->
-            <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0"    stop-color="#0e0f12"/>
-              <stop offset="0.30" stop-color="#34383e"/>
-              <stop offset="0.44" stop-color="#9aa0a7"/>
-              <stop offset="0.50" stop-color="#c9ced4"/>
-              <stop offset="0.56" stop-color="#5c6167"/>
-              <stop offset="0.72" stop-color="#2b2e33"/>
-              <stop offset="1"    stop-color="#4a4e55"/>
-            </linearGradient>
-
-            <!-- Long vertical polish, subtle darkening toward tip -->
-            <linearGradient id="steelLong" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0"    stop-color="#e9edf2" stop-opacity="0.10"/>
-              <stop offset="0.22" stop-color="#ffffff" stop-opacity="0.04"/>
-              <stop offset="0.60" stop-color="#000000" stop-opacity="0.10"/>
-              <stop offset="1"    stop-color="#000000" stop-opacity="0.28"/>
-            </linearGradient>
-
-            <!-- Moving mirror reflection band -->
-            <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0"    stop-color="#ffffff" stop-opacity="0"/>
-              <stop offset="0.42" stop-color="#ffffff" stop-opacity="0"/>
-              <stop offset="0.50" stop-color="#ffffff" stop-opacity="0.85"/>
-              <stop offset="0.58" stop-color="#ffffff" stop-opacity="0"/>
-              <stop offset="1"    stop-color="#ffffff" stop-opacity="0"/>
-            </linearGradient>
-
-            <!-- Hamon temper line frost -->
-            <linearGradient id="hamon" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0"    stop-color="#ffffff" stop-opacity="0"/>
-              <stop offset="0.55" stop-color="#eef2f6" stop-opacity="0.65"/>
-              <stop offset="1"    stop-color="#ffffff" stop-opacity="0.05"/>
-            </linearGradient>
-
-            <!-- Crimson edge glow -->
-            <linearGradient id="edgeGlow" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0"    stop-color="#ff3b30" stop-opacity="0"/>
-              <stop offset="0.5"  stop-color="#ff5a45" stop-opacity="0.5"/>
-              <stop offset="1"    stop-color="#7a0f0a" stop-opacity="0"/>
-            </linearGradient>
-
-            <!-- Rayskin (same beneath the wrap) -->
-            <radialGradient id="rayskin" cx="0.5" cy="0.4" r="0.8">
-              <stop offset="0"   stop-color="#5c0f10"/>
-              <stop offset="0.6" stop-color="#3d0a0c"/>
-              <stop offset="1"   stop-color="#230608"/>
-            </radialGradient>
-
-            <!-- Gunmetal fittings -->
-            <linearGradient id="gunmetal" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0"    stop-color="#141619"/>
-              <stop offset="0.5"  stop-color="#4b5158"/>
-              <stop offset="0.65" stop-color="#6b727a"/>
-              <stop offset="1"    stop-color="#191b1f"/>
-            </linearGradient>
-
-            <!-- Tsuba forged steel -->
-            <radialGradient id="tsuba" cx="0.42" cy="0.38" r="0.75">
-              <stop offset="0"   stop-color="#3a3e44"/>
-              <stop offset="0.5" stop-color="#1c1f23"/>
-              <stop offset="1"   stop-color="#0a0b0d"/>
-            </radialGradient>
-
-            <!-- Damascus fold turbulence -->
-            <filter id="damascus" x="-20%" y="-20%" width="140%" height="140%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.008 0.05" numOctaves="4" seed="7" result="n"/>
-              <feColorMatrix in="n" type="matrix"
-                values="0 0 0 0 0.55  0 0 0 0 0.58  0 0 0 0 0.62  0 0 0 0.9 0" result="c"/>
-              <feComponentTransfer in="c" result="cc">
-                <feFuncA type="gamma" amplitude="1" exponent="2.4" offset="0"/>
-              </feComponentTransfer>
-            </filter>
-
-            <!-- Rayskin speckle -->
-            <filter id="pearl" x="-20%" y="-20%" width="140%" height="140%">
-              <feTurbulence type="turbulence" baseFrequency="0.9" numOctaves="2" seed="4" result="n"/>
-              <feColorMatrix in="n" type="matrix"
-                values="0 0 0 0 0.9  0 0 0 0 0.85  0 0 0 0 0.85  0 0 0 0.4 0"/>
-            </filter>
-
-            <filter id="soft"><feGaussianBlur stdDeviation="1.1"/></filter>
-            <filter id="softer"><feGaussianBlur stdDeviation="3"/></filter>
-
-            <!-- Blade silhouette used as a mask -->
-            <path id="bladePath" d="
-              M150 44
-              C 168 70, 178 150, 180 300
-              C 182 560, 179 860, 172 1108
-              L 150 1120
-              L 130 1108
-              C 128 860, 129 560, 130 300
-              C 131 150, 138 78, 150 44 Z"/>
-            <mask id="bladeMask">
-              <use href="#bladePath" fill="#fff"/>
-            </mask>
-
-            <!-- Diamond ito wrap tile -->
-            <pattern id="ito" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
-              <rect width="22" height="22" fill="url(#rayskin)"/>
-              <rect width="22" height="22" fill="#000" filter="url(#pearl)" opacity="0.35"/>
-              <!-- crossing black straps -->
-              <path d="M-4 0 L11 15 L11 22 L-4 7 Z M26 0 L11 15 L11 22 L26 7 Z" fill="#0c0c0d"/>
-              <path d="M11 15 L-4 0 L3 0 L11 8 Z" fill="#242426"/>
-              <path d="M11 15 L26 0 L19 0 L11 8 Z" fill="#1b1b1d"/>
-              <path d="M-4 22 L11 7 L18 14 L4 28 Z" fill="#141416" opacity="0.7"/>
-              <!-- stitch highlight at knot -->
-              <circle cx="11" cy="15" r="1.1" fill="#3b3b3d"/>
-            </pattern>
-          </defs>
-
-          <!-- soft cast glow behind steel -->
-          <use href="#bladePath" fill="#aeb6c0" opacity="0.10" filter="url(#softer)"/>
-
-          <!-- ================= BLADE ================= -->
-          <g mask="url(#bladeMask)">
-            <rect x="120" y="30" width="70" height="1110" fill="url(#steel)"/>
-            <rect x="120" y="30" width="70" height="1110" fill="url(#steelLong)"/>
-            <!-- damascus folds in the ji -->
-            <rect x="120" y="30" width="70" height="1110" filter="url(#damascus)" opacity="0.16"/>
-            <!-- hamon temper band along the edge -->
-            <path d="M176 120
-                     q -10 40 -2 80 q 8 30 -2 70 q -9 44 1 84 q 8 34 -2 74
-                     q -9 44 1 88 q 8 34 -2 74 q -9 44 1 86 q 7 30 -1 66
-                     q -8 40 1 78 L 176 1108 L 190 1108 L 190 120 Z"
-                  fill="url(#hamon)" opacity="0.55" filter="url(#soft)"/>
-            <!-- shinogi ridge highlight -->
-            <rect x="150" y="40" width="1.6" height="1080" fill="#f4f7fb" opacity="0.35"/>
-            <!-- micro scratches -->
-            <g stroke="#ffffff" stroke-width="0.5" opacity="0.06">
-              <line x1="145" y1="200" x2="146" y2="520"/>
-              <line x1="158" y1="120" x2="159" y2="640"/>
-              <line x1="140" y1="420" x2="141" y2="900"/>
-              <line x1="163" y1="360" x2="164" y2="980"/>
-              <line x1="152" y1="560" x2="153" y2="1060"/>
-            </g>
-            <!-- moving reflection -->
-            <rect id="reflect" class="sheen" x="118" y="-380" width="74" height="620" fill="url(#sheen)"/>
-          </g>
-
-          <!-- crisp edge + crimson catch -->
-          <use href="#bladePath" fill="none" stroke="#0a0b0d" stroke-width="1.2"/>
-          <path d="M180 300 C 182 560, 179 860, 172 1108" fill="none"
-                stroke="url(#edgeGlow)" stroke-width="2.4" opacity="0.7"/>
-          <!-- kissaki tip catch -->
-          <path d="M150 44 C 160 66, 168 120, 170 190" fill="none" stroke="#eef3f8" stroke-width="1.4" opacity="0.55"/>
-
-          <!-- ================= HABAKI (blade collar) ================= -->
-          <g>
-            <rect x="128" y="1112" width="44" height="40" rx="4" fill="url(#gunmetal)"/>
-            <rect x="128" y="1112" width="44" height="40" rx="4" fill="none" stroke="#0a0b0d" stroke-width="1"/>
-            <line x1="150" y1="1114" x2="150" y2="1150" stroke="#8b929a" stroke-width="0.8" opacity="0.6"/>
-          </g>
-
-          <!-- ================= TSUBA (guard) ================= -->
-          <g>
-            <ellipse cx="150" cy="1168" rx="66" ry="18" fill="url(#tsuba)"/>
-            <ellipse cx="150" cy="1168" rx="66" ry="18" fill="none" stroke="#000" stroke-width="1.2"/>
-            <ellipse cx="150" cy="1165" rx="60" ry="14" fill="none" stroke="#5b6068" stroke-width="0.7" opacity="0.5"/>
-            <ellipse cx="150" cy="1168" rx="20" ry="7" fill="#0a0b0d"/>
-            <!-- engraved ticks -->
-            <g stroke="#6b7178" stroke-width="0.8" opacity="0.55">
-              <line x1="92"  y1="1168" x2="98"  y2="1168"/>
-              <line x1="202" y1="1168" x2="208" y2="1168"/>
-              <line x1="112" y1="1156" x2="116" y2="1159"/>
-              <line x1="188" y1="1156" x2="184" y2="1159"/>
-              <line x1="112" y1="1180" x2="116" y2="1177"/>
-              <line x1="188" y1="1180" x2="184" y2="1177"/>
-            </g>
-            <text x="150" y="1156" text-anchor="middle" font-family="Shippori Mincho, serif"
-                  font-size="9" fill="#7a808799" opacity="0.6">匠</text>
-          </g>
-
-          <!-- ================= FUCHI ================= -->
-          <rect x="132" y="1184" width="36" height="26" rx="3" fill="url(#gunmetal)"/>
-          <path d="M136 1197 q 8 -4 14 0 q 8 4 14 0" fill="none" stroke="#7a818a" stroke-width="0.7" opacity="0.5"/>
-
-          <!-- ================= TSUKA (handle) ================= -->
-          <g>
-            <rect x="133" y="1210" width="34" height="316" rx="10" fill="url(#rayskin)"/>
-            <rect x="133" y="1210" width="34" height="316" rx="10" fill="url(#ito)"/>
-            <!-- form shading -->
-            <rect x="133" y="1210" width="34" height="316" rx="10" fill="url(#steel)" opacity="0.12"/>
-            <rect x="133" y="1210" width="10" height="316" rx="6" fill="#000" opacity="0.28"/>
-            <rect x="157" y="1210" width="10" height="316" rx="6" fill="#000" opacity="0.18"/>
-            <rect x="146" y="1210" width="6"  height="316" fill="#fff" opacity="0.05"/>
-            <!-- menuki hint -->
-            <ellipse cx="150" cy="1368" rx="7" ry="12" fill="#241b0a" opacity="0.8"/>
-            <ellipse cx="150" cy="1368" rx="7" ry="12" fill="none" stroke="#8a6a2a" stroke-width="0.6" opacity="0.7"/>
-          </g>
-
-          <!-- ================= KASHIRA (pommel) ================= -->
-          <g>
-            <rect x="132" y="1520" width="36" height="30" rx="10" fill="url(#gunmetal)"/>
-            <rect x="132" y="1520" width="36" height="30" rx="10" fill="none" stroke="#0a0b0d" stroke-width="1"/>
-            <path d="M138 1534 q 12 -6 24 0" fill="none" stroke="#828993" stroke-width="0.7" opacity="0.5"/>
-          </g>
-        </svg>
-      </div>
-    </div>
-
-    <!-- floating hint -->
-    <div class="scroll-hint" id="scrollHint">
-      <span>scroll to reveal</span>
-      <div class="scroll-line"></div>
-    </div>
-  </div>
-
-  <!-- ============================================================= -->
-  <!-- SCROLL NARRATIVE                                               -->
-  <!-- ============================================================= -->
   <main>
-    <section class="chapter chapter-hero" id="hero">
-      <div class="chapter-inner">
-        <p class="eyebrow">One sword. One legend.</p>
-        <h1 class="display">The<br/><em>Hero</em> Katana</h1>
-        <p class="lede">A single, handcrafted blade — folded a thousand times, wrapped in shadow, suspended in silence. Not a weapon. A relic of patience.</p>
-        <div class="meta-row">
-          <span>Folded Damascus</span><i></i>
-          <span>Matte Black Leather</span><i></i>
-          <span>Crimson Dragon Saya</span>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="eyebrow" data-reveal>Interior &amp; Furniture Design Studio · Gurugram</p>
+        <h1 data-reveal data-delay="1">Spaces composed<br />with <span class="italic accent">intent</span> &amp; craft.</h1>
+        <p class="lead" data-reveal data-delay="2">
+          Infurn Designs Studio shapes homes, workplaces and bespoke furniture that feel
+          considered in every detail. Design is not our job — it is our passion.
+        </p>
+        <div class="hero-cta" data-reveal data-delay="3">
+          <a href="portfolio.html" class="btn btn-primary">View our work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="services.html" class="btn btn-ghost">What we do</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>
+    </section>
+
+    <!-- ============================ MARQUEE ============================ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Residential Interiors</span><span>Bespoke Furniture</span><span>Modular Kitchens</span>
+        <span>Luxury Bathrooms</span><span>Turnkey Fit-outs</span><span>Space Planning</span>
+        <span>Residential Interiors</span><span>Bespoke Furniture</span><span>Modular Kitchens</span>
+        <span>Luxury Bathrooms</span><span>Turnkey Fit-outs</span><span>Space Planning</span>
+      </div>
+    </div>
+
+    <!-- ============================ INTRO / SPLIT ============================ -->
+    <section class="section">
+      <div class="container split">
+        <div class="split-text" data-reveal>
+          <p class="eyebrow">The Studio</p>
+          <h2 class="mt-1">A design practice where <span class="italic accent">detail</span> is the whole point.</h2>
+          <p class="lead mt-2">
+            We are a multidisciplinary interior design and furniture studio based in Gurugram.
+            From a single statement piece to a complete turnkey home, we handle concept,
+            drawings, material selection and on-site execution — so the finished space matches
+            the drawing, exactly.
+          </p>
+          <ul class="flist">
+            <li><span><strong>End-to-end delivery</strong> Concept, 3D visualisation, procurement and site supervision under one roof.</span></li>
+            <li><span><strong>Made-to-measure furniture</strong> Designed in-studio and built by trusted craftspeople.</span></li>
+            <li><span><strong>Honest materials</strong> Considered timber, stone, metal and textile, specified for how you live.</span></li>
+          </ul>
+          <a href="about.html" class="btn btn-ghost mt-3">More about the studio
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="split-media" data-reveal data-delay="1">
+          <div class="frame tall">
+            <!-- Swap this placeholder for a real project photo: <img src="assets/img/hero-room.jpg" alt="..."> -->
+            <div class="ph"><span class="ico">✦</span><span>Studio project · add photo</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="chapter" id="blade">
-      <div class="chapter-inner align-right">
-        <p class="eyebrow">鋼 &middot; The Blade</p>
-        <h2>Folded steel,<br/>living light</h2>
-        <p class="body">Dark Damascus runs like smoke through the core. A single Hamon line traces the temper. As the light travels, a mirror edge wakes — catching the sun, then vanishing back into grey.</p>
-        <ul class="spec">
-          <li><span>01</span> Mirror-polished cutting edge</li>
-          <li><span>02</span> Visible Hamon temper line</li>
-          <li><span>03</span> Folded Damascus core</li>
-          <li><span>04</span> Micro-imperfections of the forge</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="chapter" id="tsuka">
-      <div class="chapter-inner">
-        <p class="eyebrow">柄 &middot; The Handle</p>
-        <h2>Wrapped by<br/>hand, in the dark</h2>
-        <p class="body">Matte black leather crosses in a perfect diamond ito, deep crimson rayskin breathing between every knot. Soft to hold, honest in its wear — the mark of a hand that has held it before.</p>
-        <ul class="spec">
-          <li><span>01</span> Diamond leather wrap</li>
-          <li><span>02</span> Crimson rayskin beneath</li>
-          <li><span>03</span> Visible hand stitching</li>
-          <li><span>04</span> Gunmetal fuchi &amp; kashira</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="chapter" id="tsuba">
-      <div class="chapter-inner align-right">
-        <p class="eyebrow">鍔 &middot; The Guard</p>
-        <h2>Restraint,<br/>forged in steel</h2>
-        <p class="body">A minimal circle of matte black steel. Thin. Quiet. Only up close do the engraved characters appear around its edge — luxury that never announces itself.</p>
-        <ul class="spec">
-          <li><span>01</span> Forged matte black steel</li>
-          <li><span>02</span> Thin, elegant profile</li>
-          <li><span>03</span> Engraved edge glyphs</li>
-          <li><span>04</span> Premium machining</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="chapter chapter-saya" id="saya">
-      <div class="chapter-inner">
-        <p class="eyebrow">鞘 &middot; The Saya</p>
-        <h2>A dragon<br/>sleeps in lacquer</h2>
-        <p class="body">Black lacquer over a whisper of woodgrain. A single crimson dragon, hand-painted, coils diagonally around the scabbard — touched with gold only where it must be. Bound in black sageo, capped in antique brass.</p>
-        <div class="saya-art" aria-label="Crimson dragon lacquered scabbard art">
-          <svg viewBox="0 0 640 220" class="saya-svg" role="img" aria-label="Crimson dragon coiling around a black lacquer saya">
-            <defs>
-              <linearGradient id="lacquer" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#17181b"/>
-                <stop offset="0.5" stop-color="#050506"/>
-                <stop offset="1" stop-color="#101113"/>
-              </linearGradient>
-              <linearGradient id="lacquerSheen" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#fff" stop-opacity="0"/>
-                <stop offset="0.5" stop-color="#fff" stop-opacity="0.10"/>
-                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-              </linearGradient>
-              <linearGradient id="dragon" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#7a0f0a"/>
-                <stop offset="0.5" stop-color="#e0342a"/>
-                <stop offset="1" stop-color="#8a140c"/>
-              </linearGradient>
-              <filter id="wood"><feTurbulence type="fractalNoise" baseFrequency="0.005 0.09" numOctaves="3" seed="11"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.09  0 0 0 0 0.08  0 0 0 0.25 0"/></filter>
-            </defs>
-            <rect x="20" y="86" width="600" height="46" rx="23" fill="url(#lacquer)"/>
-            <rect x="20" y="86" width="600" height="46" rx="23" filter="url(#wood)" opacity="0.4"/>
-            <rect x="20" y="90" width="600" height="10" rx="5" fill="url(#lacquerSheen)"/>
-            <!-- brass kojiri end cap -->
-            <rect x="600" y="86" width="20" height="46" rx="10" fill="#b08a3a"/>
-            <rect x="600" y="90" width="20" height="6" rx="3" fill="#e3c987" opacity="0.7"/>
-            <!-- sageo cord near the mouth -->
-            <path d="M70 86 q -18 -14 -6 -30 q 12 -14 -2 -26" fill="none" stroke="#0c0c0d" stroke-width="4" stroke-linecap="round"/>
-            <path d="M70 132 q -18 14 -6 30 q 12 14 -2 26" fill="none" stroke="#0c0c0d" stroke-width="4" stroke-linecap="round"/>
-            <!-- coiling dragon body — tapered head → tail across three strokes -->
-            <g stroke-linecap="round" fill="none">
-              <path d="M132 116 C 190 62, 250 62, 300 100" stroke="url(#dragon)" stroke-width="16"/>
-              <path d="M300 100 C 350 138, 410 148, 470 108" stroke="url(#dragon)" stroke-width="12"/>
-              <path d="M470 108 C 520 76, 556 92, 584 116" stroke="url(#dragon)" stroke-width="7.5"/>
-              <!-- tail flick -->
-              <path d="M584 116 q 16 10 12 26 q -2 8 -12 4" stroke="url(#dragon)" stroke-width="3.5"/>
-              <!-- top-light highlight -->
-              <path d="M132 116 C 190 62, 250 62, 300 100 C 350 138, 410 148, 470 108 C 520 76, 556 92, 584 116"
-                    stroke="#ff8878" stroke-width="1.6" opacity="0.55"/>
-            </g>
-            <!-- dragon head, horns, whisker -->
-            <path d="M132 116 q -20 -2 -30 -16 q -6 -10 2 -18 q 10 4 18 0 q -4 -12 6 -18 q 4 12 14 14 q 12 2 14 14 q 2 12 -10 18 q -10 6 -14 6 Z" fill="url(#dragon)"/>
-            <path d="M110 84 q -6 -14 -18 -18" fill="none" stroke="#7a0f0a" stroke-width="3" stroke-linecap="round"/>
-            <path d="M122 80 q -2 -16 -12 -22" fill="none" stroke="#7a0f0a" stroke-width="3" stroke-linecap="round"/>
-            <path d="M102 108 q -22 6 -34 -2" fill="none" stroke="#e0342a" stroke-width="1.6" stroke-linecap="round" opacity="0.8"/>
-            <circle cx="112" cy="100" r="2.6" fill="#f5c451"/>
-            <!-- small gold-tipped claws -->
-            <g stroke="#c9a24a" stroke-width="2" stroke-linecap="round" opacity="0.85">
-              <path d="M250 116 l -6 12 M258 118 l -2 14"/>
-              <path d="M430 124 l 6 12 M438 122 l 2 14"/>
-            </g>
-            <!-- sparse gold spine accents -->
-            <g fill="#d9b155" opacity="0.7">
-              <circle cx="230" cy="74" r="1.8"/><circle cx="300" cy="99" r="1.8"/>
-              <circle cx="385" cy="130" r="1.8"/><circle cx="470" cy="107" r="1.8"/>
-              <circle cx="545" cy="97" r="1.6"/>
-            </g>
-          </svg>
+    <!-- ============================ STATS ============================ -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="stats">
+          <div class="stat" data-reveal>
+            <div class="num"><span data-count="12">0</span><span class="suffix">+</span></div>
+            <div class="label">Years designing</div>
+          </div>
+          <div class="stat" data-reveal data-delay="1">
+            <div class="num"><span data-count="240">0</span><span class="suffix">+</span></div>
+            <div class="label">Spaces delivered</div>
+          </div>
+          <div class="stat" data-reveal data-delay="2">
+            <div class="num"><span data-count="100">0</span><span class="suffix">%</span></div>
+            <div class="label">Bespoke &amp; made-to-measure</div>
+          </div>
+          <div class="stat" data-reveal data-delay="3">
+            <div class="num"><span data-count="1">0</span></div>
+            <div class="label">Studio, start to finish</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="chapter chapter-forge" id="forge">
-      <div class="chapter-inner center">
-        <p class="eyebrow">匠 &middot; The Forge</p>
-        <h2>95% shadow.<br/>The rest is fire.</h2>
-        <p class="body">Black, gunmetal, steel, deep grey — and the smallest breath of crimson and gold. Every material chosen to disappear, so the craftsmanship can speak.</p>
-        <div class="palette">
-          <span class="sw" style="--c:#0b0c0e" data-n="Black"></span>
-          <span class="sw" style="--c:#2b2f34" data-n="Gunmetal"></span>
-          <span class="sw" style="--c:#6a7178" data-n="Steel"></span>
-          <span class="sw" style="--c:#3a3d42" data-n="Dark Grey"></span>
-          <span class="sw" style="--c:#c8322a" data-n="Crimson"></span>
-          <span class="sw" style="--c:#c9a24a" data-n="Gold"></span>
+    <!-- ============================ SERVICES ============================ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="center mx-auto maxw" data-reveal>
+          <p class="eyebrow center">What we do</p>
+          <h2 class="mt-1">Design services, <span class="italic accent">end to end</span>.</h2>
+          <p class="lead mx-auto mt-2">A focused set of services covering everything from the first mood board to the last coat of finish.</p>
         </div>
-        <div class="cta">
-          <a class="btn" href="#hero">Return to the blade</a>
-          <span class="edition">Edition of one &middot; forever</span>
+
+        <div class="grid three mt-3">
+          <article class="card" data-reveal>
+            <span class="idx">01</span>
+            <h3>Interior Design</h3>
+            <p>Full residential and commercial interiors — layouts, palettes, lighting and styling composed into one coherent scheme.</p>
+            <div class="tags"><span>Homes</span><span>Offices</span><span>Retail</span></div>
+          </article>
+          <article class="card" data-reveal data-delay="1">
+            <span class="idx">02</span>
+            <h3>Bespoke Furniture</h3>
+            <p>Made-to-measure furniture designed in-studio — statement tables, seating, beds and storage built to fit your space.</p>
+            <div class="tags"><span>Custom</span><span>Wood</span><span>Upholstery</span></div>
+          </article>
+          <article class="card" data-reveal data-delay="2">
+            <span class="idx">03</span>
+            <h3>Modular Kitchens &amp; Wardrobes</h3>
+            <p>Functional, beautifully engineered modular systems with premium hardware and finishes that last.</p>
+            <div class="tags"><span>Kitchens</span><span>Wardrobes</span><span>Storage</span></div>
+          </article>
+          <article class="card" data-reveal>
+            <span class="idx">04</span>
+            <h3>Luxury Bathroom Design</h3>
+            <p>Spa-like bathrooms — sanitaryware, tiling, vanities and lighting detailed for calm and durability.</p>
+            <div class="tags"><span>Sanitaryware</span><span>Tiling</span><span>Vanities</span></div>
+          </article>
+          <article class="card" data-reveal data-delay="1">
+            <span class="idx">05</span>
+            <h3>Turnkey Fit-outs</h3>
+            <p>One accountable team from demolition to handover — civil, electrical, false ceiling, joinery and finishing.</p>
+            <div class="tags"><span>Execution</span><span>Site</span><span>Handover</span></div>
+          </article>
+          <article class="card" data-reveal data-delay="2">
+            <span class="idx">06</span>
+            <h3>Consultation &amp; 3D Design</h3>
+            <p>Space planning, material boards and photoreal 3D visualisation so you can see the space before we build it.</p>
+            <div class="tags"><span>Planning</span><span>Moodboards</span><span>3D</span></div>
+          </article>
+        </div>
+
+        <div class="center mt-3" data-reveal>
+          <a href="services.html" class="btn btn-ghost">Explore all services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURED WORK ============================ -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="split" style="align-items:end" data-reveal>
+          <div>
+            <p class="eyebrow">Selected Work</p>
+            <h2 class="mt-1">Recent <span class="italic accent">projects</span>.</h2>
+          </div>
+          <p class="lead" style="margin-bottom:6px">A glimpse of interiors and furniture we've shaped. Explore the full portfolio for detail.</p>
+        </div>
+
+        <div class="work mt-3">
+          <a class="work-item col-7" href="portfolio.html" data-reveal>
+            <div class="frame"><div class="ph"><span class="ico">✦</span><span>Residential · add photo</span></div></div>
+            <div class="cap"><h3>Warm Minimal Apartment</h3><p>Residential Interior</p></div>
+          </a>
+          <a class="work-item col-5" href="portfolio.html" data-reveal data-delay="1">
+            <div class="frame"><div class="ph"><span class="ico">✦</span><span>Kitchen · add photo</span></div></div>
+            <div class="cap"><h3>Sculpted Modular Kitchen</h3><p>Kitchen Design</p></div>
+          </a>
+          <a class="work-item col-5" href="portfolio.html" data-reveal>
+            <div class="frame"><div class="ph"><span class="ico">✦</span><span>Bathroom · add photo</span></div></div>
+            <div class="cap"><h3>Stone &amp; Brass Bathroom</h3><p>Bathroom Design</p></div>
+          </a>
+          <a class="work-item col-7" href="portfolio.html" data-reveal data-delay="1">
+            <div class="frame"><div class="ph"><span class="ico">✦</span><span>Workspace · add photo</span></div></div>
+            <div class="cap"><h3>Boutique Studio Office</h3><p>Commercial Interior</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROCESS ============================ -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="maxw" data-reveal>
+          <p class="eyebrow">How we work</p>
+          <h2 class="mt-1">A calm, <span class="italic accent">clear</span> process.</h2>
+        </div>
+        <div class="steps mt-3">
+          <div class="step" data-reveal><span class="n"></span><div><h3>Discover</h3><p>We listen — how you live or work, what you love, your budget and timeline. Site visit and measurements follow.</p></div></div>
+          <div class="step" data-reveal><span class="n"></span><div><h3>Design</h3><p>Concept, layouts, material palettes and photoreal 3D views. We refine together until it feels right.</p></div></div>
+          <div class="step" data-reveal><span class="n"></span><div><h3>Craft</h3><p>Bespoke furniture and joinery are built while site works progress under our supervision.</p></div></div>
+          <div class="step" data-reveal><span class="n"></span><div><h3>Deliver</h3><p>Finishing, styling and a clean handover of a space that matches the drawing, down to the detail.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA ============================ -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="cta" data-reveal>
+          <p class="eyebrow center">Let's begin</p>
+          <h2>Have a space in mind? Let's design it together.</h2>
+          <p class="lead">Book a no-obligation consultation with the studio and we'll map out the possibilities for your home or workplace.</p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-primary">Book a consultation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="portfolio.html" class="btn btn-ghost">See the portfolio</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="foot">
-    <span class="foot-mark">刀</span>
-    <span>KUROGANE &middot; 黒鉄</span>
-    <span class="foot-fine">Handcrafted. Singular. Suspended in shadow.</span>
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="logo" href="index.html" style="margin-bottom:20px">
+            <span class="logo-mark">I</span>
+            <span class="logo-name"><b>Infurn</b> Designs</span>
+          </a>
+          <h3 class="display">Design is not our job — it's our passion.</h3>
+        </div>
+        <div class="fcol">
+          <h4>Explore</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">The Studio</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Work</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="fcol">
+          <h4>Studio</h4>
+          <a href="contact.html">Gurugram, Haryana</a>
+          <a href="tel:+910000000000">+91 00000 00000</a>
+          <a href="mailto:hello@infurndesigns.com">hello@infurndesigns.com</a>
+          <a href="https://www.instagram.com/infurn.designs/" target="_blank" rel="noopener">Instagram ↗</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Infurn Designs Studio. All rights reserved.</span>
+        <span>Gurugram · India</span>
+      </div>
+    </div>
   </footer>
 
-  <script src="assets/js/atmosphere.js" defer></script>
-  <script src="assets/js/katana.js" defer></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
