@@ -1,0 +1,20 @@
+# Netlify configuration for Infurn Designs Studio (static site, no build step)
+
+[build]
+  publish = "."
+  command = ""
+
+# Sensible security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache project photos for a week (filenames are stable)
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
