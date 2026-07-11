@@ -1,4 +1,4 @@
-Project photos for Infurn Designs Studio
+Project photos for Design & Decor Studio
 =========================================
 
 The website is already wired to display five photos as full-bleed section

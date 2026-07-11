@@ -1,6 +1,6 @@
-# Infurn Designs Studio — Website
+# Design & Decor Studio — Website
 
-A dark, cinematic, multi-page marketing website for **Infurn Designs Studio**, an
+A dark, cinematic, multi-page marketing website for **Design & Decor Studio**, an
 interior design and bespoke furniture practice based in Gurugram, India.
 Tagline: *"Design is not our job — it's our passion."*
 
@@ -45,7 +45,7 @@ The site is built with clearly-marked placeholders. Replace these:
 
 1. **Contact details** — phone, email, exact address and hours appear in
    `contact.html` and in the footer of every page. Search for
-   `+91 00000 00000` and `hello@infurndesigns.com` and update them.
+   `+91 00000 00000` and `hello@designdecorstudio.com` and update them.
 2. **Photos** — the site is already wired to use five images as full-bleed
    section backgrounds and portfolio frames. Just drop the files into
    `assets/img/` with these exact names (see `assets/img/README.txt`):
@@ -56,7 +56,7 @@ The site is built with clearly-marked placeholders. Replace these:
 4. **Contact form** — currently a front-end-only acknowledgement. Wire it to
    email, a form service (e.g. Formspree), or a WhatsApp link to receive
    enquiries. See `data-contact-form` handling in `assets/js/main.js`.
-5. **Social links** — the Instagram link points to `@infurn.designs`; confirm
+5. **Social links** — the Instagram link points to `@designdecor.studio`; confirm
    or update.
 
 ## Accessibility & performance

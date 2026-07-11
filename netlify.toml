@@ -1,4 +1,4 @@
-# Netlify configuration for Infurn Designs Studio (static site, no build step)
+# Netlify configuration for Design & Decor Studio (static site, no build step)
 
 [build]
   publish = "."

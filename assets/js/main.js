@@ -1,5 +1,5 @@
 /* =============================================================
-   INFURN DESIGNS STUDIO — shared interactions
+   DESIGN & DECOR STUDIO — shared interactions
    Sticky header · mobile nav · scroll reveals · stat counters
    Vanilla JS, no dependencies.
    ============================================================= */
