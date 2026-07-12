@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Mirror of src/constants/tokens.ts for CSS-side usage. Keep in sync. */
+  --bg-primary: #f8fcff;
+  --bg-secondary: #f3fafd;
+  --ocean-blue: #1597ff;
+  --light-water: #77d7ff;
+  --crystal-cyan: #dff8ff;
+  --deep-ocean: #0057c8;
+  --accent: #00aeef;
+  --text-primary: #0a1b2b;
+  --text-secondary: #4f6778;
+  --text-muted: #93a6b5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  /* Never pure white / pure black — PRD Part 2. */
+}
+
+/* Accessibility-only visually-hidden content for the SEO/screen-reader baseline. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

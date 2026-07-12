@@ -1,0 +1,23 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["@/three/*", "three", "@react-three/*"],
+            "message": "DOM components must not import the 3D layer directly. Mount it via ExperienceLayer so the baseline stays shippable without WebGL.",
+            "importNames": ["*"]
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/three/**", "src/components/ExperienceLayer.tsx"],
+      "rules": { "no-restricted-imports": "off" }
+    }
+  ]
+}
