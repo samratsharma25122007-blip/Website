@@ -1,4 +1,4 @@
-Project photos for Design & Decor Studio
+Project photos for Advance Home Interior
 =========================================
 
 The website is already wired to display five photos as full-bleed section
